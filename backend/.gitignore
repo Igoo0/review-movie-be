@@ -1,0 +1,13 @@
+# node_modules untuk backend
+node_modules/
+
+# logs
+logs/
+*.log
+
+# environment variables (jangan pernah commit ini!)
+.env
+
+# sistem bawaan macOS / Windows
+.DS_Store
+Thumbs.db

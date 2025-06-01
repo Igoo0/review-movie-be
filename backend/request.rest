@@ -1,0 +1,151 @@
+
+
+###
+POST http://localhost:3000/Movies
+Content-Type: application/json
+
+{
+  "name": "Perfect White",
+  "director": "Satoshi Kon",
+  "release_date": "1997-08-23",
+  "genre": "Psychological Thriller",
+  "duration": 81,
+  "synopsis": "A former pop singer is stalked by an obsessed fan and struggles with her identity when she starts acting.",
+  "cast": "Junko Iwao, Rica Matsumoto, Shinpachi Tsuji",
+  "poster": "/uploads/posters/perfectblue.jpg"
+}
+
+
+###
+POST http://localhost:3000/Movies
+Content-Type: application/json
+
+{
+  "name": "Hereditary",
+  "director": "Ari Aster",
+  "release_date": "2018-06-08",
+  "genre": "Horror",
+  "duration": 127,
+  "synopsis": "When the matriarch of the Graham family passes away, her daughter and grandchildren begin to unravel cryptic and terrifying secrets about their ancestry.",
+  "cast": "Toni Collette, Alex Wolff, Milly Shapiro, Gabriel Byrne"
+}
+
+
+
+### Register Admin
+POST http://localhost:3000/registerAdmin
+Content-Type: application/json
+
+{
+  "username": "abedadmin",
+  "email": "admin@gmail.com",
+  "password": "abed299"
+}
+
+### LOGIN Admin
+POST http://localhost:3000/loginAdmin
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "abed299"
+}
+
+###
+POST http://localhost:3000/Movies
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhYmVkYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDFUMTQ6NDM6NTAuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDFUMTQ6NDM6NTAuMDAwWiIsImlhdCI6MTc0ODc4OTAzNiwiZXhwIjoxNzQ4ODc1NDM2fQ.7EwjUq4NbZn1EWV8sNYlcHxaJG-vpdvLZLXi4Vblr-8
+
+{
+  "name": "ngeri ngeri sedap",
+  "director": "Ernst Prakasa",
+  "release_date": "2022-07-28",
+  "genre": "Comedy",
+  "duration": 120,
+  "synopsis": "A family of traditional farmers in North Sumatra, Indonesia, struggles to keep their land and traditions alive while dealing with modern challenges and family dynamics.",
+  "cast": "Arswendy Bening Swara, Indra Jegel, Tika Panggabean, Dennis Adhiswara"
+}
+
+### UPDATE Movie
+PATCH http://localhost:3000/Movies/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhYmVkYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMjVUMDM6NDI6MjUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMjVUMDM6NDY6MDguMDAwWiIsImlhdCI6MTc0ODE0NTU5NCwiZXhwIjoxNzQ4MjMxOTk0fQ.0XyuyDGMdgCwHSKiPESojBHr5LA6y6MaXjNp4PlFN-g
+
+{
+  "name": "Hereditary",
+  "director": "Ari Aster",
+  "release_date": "2018-06-08",
+  "genre": "Thriller",
+  "duration": 127,
+  "synopsis": "When the matriarch of the Graham family passes away, her daughter and grandchildren begin to unravel cryptic and terrifying secrets about their ancestry.",
+  "cast": "Toni Collette, Alex Wolff, Milly Shapiro, Gabriel Byrne"
+}
+
+###
+GET http://localhost:3000/Movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhYmVkYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDFUMTQ6NDM6NTAuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDFUMTQ6NDM6NTAuMDAwWiIsImlhdCI6MTc0ODc4OTAzNiwiZXhwIjoxNzQ4ODc1NDM2fQ.7EwjUq4NbZn1EWV8sNYlcHxaJG-vpdvLZLXi4Vblr-8
+###
+GET http://localhost:3000/Movies/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhYmVkYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMjVUMDM6NDI6MjUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMjVUMDM6NDY6MDguMDAwWiIsImlhdCI6MTc0ODE0NTU5NCwiZXhwIjoxNzQ4MjMxOTk0fQ.0XyuyDGMdgCwHSKiPESojBHr5LA6y6MaXjNp4PlFN-g
+
+###
+DELETE http://localhost:3000/Movies/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhYmVkYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMjVUMDM6NDI6MjUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMjVUMDM6NDY6MDguMDAwWiIsImlhdCI6MTc0ODE0NTU5NCwiZXhwIjoxNzQ4MjMxOTk0fQ.0XyuyDGMdgCwHSKiPESojBHr5LA6y6MaXjNp4PlFN-g
+
+### LOGOUT Admin
+DELETE http://localhost:3000/logoutAdmin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhYmVkYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMjVUMDM6NDI6MjUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMjVUMDM6NDY6MDguMDAwWiIsImlhdCI6MTc0ODE0NTU5NCwiZXhwIjoxNzQ4MjMxOTk0fQ.0XyuyDGMdgCwHSKiPESojBHr5LA6y6MaXjNp4PlFN-g
+
+
+
+### Register User
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "username": "abed2",
+  "email": "abed2@gmail.com",
+  "password": "abed299"
+}
+
+###
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhYmVkMSIsImVtYWlsIjoiYWJlZDFAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDowNDo1OS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDoyODo0Ni4wMDBaIiwiaWF0IjoxNzQ4MDk2OTQ3LCJleHAiOjE3NDgxODMzNDd9.sKdHw3wK0ix1FhvO4ekFk3QlP-qCGOK7w0YewvD9HKk
+
+### Login User
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "abed2",
+  "email": "abed2@gmail.com",
+  "password": "abed299"
+}
+
+###
+GET http://localhost:3000/Movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhYmVkMSIsImVtYWlsIjoiYWJlZDFAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDowNDo1OS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDoyODo0Ni4wMDBaIiwiaWF0IjoxNzQ4MDk2OTQ3LCJleHAiOjE3NDgxODMzNDd9.sKdHw3wK0ix1FhvO4ekFk3QlP-qCGOK7w0YewvD9HKk
+
+###
+GET http://localhost:3000/Reviews
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhYmVkMSIsImVtYWlsIjoiYWJlZDFAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDowNDo1OS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDoyODo0Ni4wMDBaIiwiaWF0IjoxNzQ4MDk2OTQ3LCJleHAiOjE3NDgxODMzNDd9.sKdHw3wK0ix1FhvO4ekFk3QlP-qCGOK7w0YewvD9HKk
+
+###
+POST http://localhost:3000/Reviews
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhYmVkMSIsImVtYWlsIjoiYWJlZDFAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDowNDo1OS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDoyODo0Ni4wMDBaIiwiaWF0IjoxNzQ4MDk2OTQ3LCJleHAiOjE3NDgxODMzNDd9.sKdHw3wK0ix1FhvO4ekFk3QlP-qCGOK7w0YewvD9HKk
+
+{
+  "rating": 2.5,
+  "review": "Suspiria is a mesmerizing and haunting remake that stands on its own. Luca Guadagnino transforms Argento's giallo classic into a visceral psychological horror experience. Dakota Johnson delivers a compelling performance as Susie, and the film's exploration of power, motherhood, and artistic obsession is both beautiful and disturbing. The choreography sequences are breathtaking, and Tilda Swinton's triple role showcase is remarkable. While it's quite long and deliberately paced, the film rewards patient viewers with its rich atmosphere and stunning cinematography. A bold and artistic horror film that lingers long after viewing.",
+  "userId": 1,
+  "movieId": 2
+}
+
+###
+// LOGOUT
+DELETE http://localhost:3000/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhYmVkMSIsImVtYWlsIjoiYWJlZDFAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDowNDo1OS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yNFQxNDoyODo0Ni4wMDBaIiwiaWF0IjoxNzQ4MDk2OTQ3LCJleHAiOjE3NDgxODMzNDd9.sKdHw3wK0ix1FhvO4ekFk3QlP-qCGOK7w0YewvD9HKk
+
+
