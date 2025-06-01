@@ -13,10 +13,20 @@ const app = express();
 // Load environment variables
 dotenv.config();
 
-// CORS configuration - fix the duplicate and wrong order
+// CORS configuration
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:8080'] // Add your frontend URLs
+  // IMPORTANT: Add your deployed frontend URL here!
+  origin: [
+    'http://localhost:3000', // Keep for local frontend development
+    'http://localhost:3001', // Keep if you use another local port
+    'http://localhost:8080', // Keep if you use another local port
+    'https://review-movie-dot-xenon-axe-450704-n3.uc.r.appspot.com' // Your deployed frontend URL
+    // You might also want to add the backend's own URL if it makes requests to itself
+    // For example: 'https://buku-tukar-559917148272.us-central1.run.app' if your backend ever calls itself.
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Explicitly allow common HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Explicitly allow common headers you use
 }));
 
 app.use(cookieParser());
@@ -34,21 +44,23 @@ app.use(ReviewRoute);
 // Error handling middleware
 app.use((error, req, res, next) => {
   console.error('Error occurred:', error);
-  
+
   if (error instanceof multer.MulterError) {
     if (error.code === 'LIMIT_FILE_SIZE') {
       return res.status(400).json({ message: 'File too large. Maximum size is 5MB.' });
     }
     return res.status(400).json({ message: `Upload error: ${error.message}` });
   }
-  
+
   if (error.message && error.message.includes('Only image files are allowed')) {
     return res.status(400).json({ message: error.message });
   }
-  
-  res.status(500).json({ message: 'Something went wrong!', error: error.message });
+
+  res.status(500).json({ message: 'Something went wrong!', error: error.message || 'Unknown error' });
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+// Use process.env.PORT for deployment environments like Google Cloud Run
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
