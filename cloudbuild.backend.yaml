@@ -20,7 +20,7 @@ steps:
       [
         "run",
         "deploy", 
-        "buku-tukar",
+        "review-movie",
         "--image",
         "gcr.io/$PROJECT_ID/review-movie:${SHORT_SHA}",
         "--timeout",
